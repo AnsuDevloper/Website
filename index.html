@@ -4,79 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Server Connection</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-            background-color: #f0f0f0;
-        }
-        #status-message, #item-message, #total-message, #payment-message {
-            margin-top: 20px;
-            font-size: 18px;
-            color: #333;
-        }
-        input, button {
-            padding: 10px;
-            font-size: 16px;
-            margin: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-        button {
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        #contact-admin {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 14px;
-            cursor: pointer;
-            background-color: #f44336;
-            color: white;
-            border: none;
-            padding: 10px;
-        }
-        #payment-section {
-            display: none;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="container">
+        <h1>Connect to Server</h1>
+        
+        <div id="code-entry-section">
+            <label for="server-code">Enter Server Code:</label><br>
+            <input type="text" id="server-code" placeholder="Enter code" required><br>
+            <button id="enter-btn">Connect</button>
+            <p id="status-message"></p>
+        </div>
 
-    <h1>Connect to Server</h1>
-    
-    <div id="code-entry-section">
-        <label for="server-code">Enter Server Code:</label><br>
-        <input type="text" id="server-code" placeholder="Enter code" required><br><br>
-        <button id="enter-btn">Enter</button><br><br>
-        <p id="status-message"></p>
+        <div id="options-section" style="display:none;">
+            <h2>Add Items</h2>
+            <button id="add-manually-btn">Add Manually</button>
+            <button id="scan-btn">Scan Barcode</button>
+            <p id="item-message"></p>
+            <p id="total-message"></p>
+            <button id="next-btn" style="display:none;">Next</button>
+        </div>
+
+        <div id="payment-section" style="display:none;">
+            <h2>Payment Details</h2>
+            <input type="text" id="card-number" placeholder="Card Number" required><br>
+            <input type="text" id="expiry-date" placeholder="MM/YY" required><br>
+            <input type="text" id="cvv" placeholder="CVV" required><br>
+            <button id="pay-btn">Pay Now</button>
+            <p id="payment-message"></p>
+        </div>
+
+        <button id="contact-admin">Contact Admin</button>
     </div>
-
-    <div id="options-section" style="display:none;">
-        <button id="add-manually-btn">Add Manually</button>
-        <button id="scan-btn">Scan</button>
-        <p id="item-message"></p>
-        <p id="total-message"></p>
-        <button id="next-btn" style="display:none;">Next</button>
-    </div>
-
-    <div id="payment-section">
-        <h2>Enter Payment Details</h2>
-        <input type="text" id="card-number" placeholder="Card Number"><br>
-        <input type="text" id="expiry-date" placeholder="MM/YY"><br>
-        <input type="text" id="cvv" placeholder="CVV"><br>
-        <button id="pay-btn">Pay</button>
-        <p id="payment-message"></p>
-    </div>
-
-    <button id="contact-admin">Contact Admin</button>
 
     <script src="script.js"></script>
 </body>
