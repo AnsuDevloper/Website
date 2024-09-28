@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const correctServerCode = "EDR4533BLS"; // Correct code to match
+    const correctServerCode = "EMP1982"; // Correct code to match
     const enterBtn = document.getElementById('enter-btn');
     const statusMessage = document.getElementById('status-message');
     const optionsSection = document.getElementById('options-section');
