@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const correctServerCode = "EDR4533BLS"; // Correct code to match
+    const correctServerCode = "EMP1211"; // Correct code to match
     const enterBtn = document.getElementById('enter-btn');
     const statusMessage = document.getElementById('status-message');
     const optionsSection = document.getElementById('options-section');
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // "Contact Admin" button event
     contactAdminBtn.addEventListener('click', function() {
-        alert("Contact the Admin by 'My mobile number'");
+        alert("Contact the Admin by '7008568300'");
     });
 
     // Add manually event
