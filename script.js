@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const correctServerCode = "EMP1211"; // Correct code to match
+    const correctServerCode = "EDR4533BLS"; // Correct code to match
     const enterBtn = document.getElementById('enter-btn');
     const statusMessage = document.getElementById('status-message');
     const optionsSection = document.getElementById('options-section');
@@ -9,6 +9,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const contactAdminBtn = document.getElementById('contact-admin');
     const addManuallyBtn = document.getElementById('add-manually-btn');
     const scanBtn = document.getElementById('scan-btn');
+    const paymentSection = document.getElementById('payment-section');
+    const payBtn = document.getElementById('pay-btn');
+    const paymentMessage = document.getElementById('payment-message');
 
     // Predefined random item codes with their prices
     const items = {
@@ -22,6 +25,13 @@ document.addEventListener("DOMContentLoaded", function() {
     let cart = [];
     let total = 0;
     const maxItems = 50;
+
+    // Predefined credit card for validation
+    const validCard = {
+        number: "4111111111111111",
+        expiry: "12/25",
+        cvv: "123"
+    };
 
     // Event listener for "Enter" button click
     enterBtn.addEventListener('click', function() {
@@ -37,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
         statusMessage.textContent = "Connecting...";
         statusMessage.style.color = "blue";
 
-        // Simulate connection process for 10 seconds
+        // Simulate connection process for 3 seconds
         setTimeout(() => {
             if (enteredCode === correctServerCode) {
                 statusMessage.textContent = "Connected!";
@@ -48,12 +58,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 statusMessage.textContent = "Server not found. Please try again.";
                 statusMessage.style.color = "red";
             }
-        }, 10000); // 10 seconds delay for simulation
+        }, 3000); // 3 seconds delay for simulation
     });
 
     // "Contact Admin" button event
     contactAdminBtn.addEventListener('click', function() {
-        alert("Contact the Admin by '7008568300'");
+        alert("Contact the Admin by 'My mobile number'");
     });
 
     // Add manually event
@@ -92,10 +102,25 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // "Next" button event for completing the payment
+    // "Next" button event to show payment details input
     nextBtn.addEventListener('click', function() {
-        alert("Payment done. Thank you!");
-        resetApp();
+        optionsSection.style.display = "none";
+        paymentSection.style.display = "block";
+    });
+
+    // "Pay" button event for credit card validation
+    payBtn.addEventListener('click', function() {
+        const cardNumber = document.getElementById('card-number').value.trim();
+        const expiryDate = document.getElementById('expiry-date').value.trim();
+        const cvv = document.getElementById('cvv').value.trim();
+
+        if (cardNumber === validCard.number && expiryDate === validCard.expiry && cvv === validCard.cvv) {
+            paymentMessage.textContent = "Payment Successful!";
+            paymentMessage.style.color = "green";
+        } else {
+            paymentMessage.textContent = "Payment Declined!";
+            paymentMessage.style.color = "red";
+        }
     });
 
     // Reset the app to the initial "Connect to Server" screen
@@ -107,6 +132,8 @@ document.addEventListener("DOMContentLoaded", function() {
         totalMessage.textContent = "";
         optionsSection.style.display = "none";
         nextBtn.style.display = "none";
+        paymentSection.style.display = "none";
+        paymentMessage.textContent = "";
         document.getElementById('server-code').value = "";
     }
 });
