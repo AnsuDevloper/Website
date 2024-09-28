@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
         "8905757843554": 2999.00,
         "6014854974144855": 1000,
         "HV7A3": 7822,
-        "FFP2": 4000,
+        "FFP2": 400,
         "DEF13579": 50
     };
 
