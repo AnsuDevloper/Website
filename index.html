@@ -3,46 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Server Code Payment</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Server Code Entry</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #status-message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <div id="container">
-        <h1>Welcome!</h1>
-        <p class="description">Please enter the server code to connect.</p>
 
-        <div id="serverSection">
-            <input type="text" id="serverCode" placeholder="Enter Server Code">
-            <button class="animated-btn" onclick="connect()">Connect</button>
-            <div id="connectStatus"></div>
-        </div>
-
-        <div id="itemSection" style="display:none;">
-            <h2>Enter or Scan Item Code</h2>
-            <input type="text" id="itemCode" placeholder="Enter Item Code">
-            <button class="animated-btn" onclick="checkItem()">Check Price</button>
-            <button class="animated-btn" onclick="startScanner()">Scan Barcode</button>
-            <div id="itemList"></div>
-        </div>
-
-        <div id="totalSection" style="display:none;">
-            <h2>Total Price</h2>
-            <div id="totalPrice"></div>
-            <button class="animated-btn" onclick="showPayment()">Proceed to Payment</button>
-        </div>
-
-        <div id="paymentSection" style="display:none;">
-            <h2>Enter Payment Details</h2>
-            <input type="text" id="creditPhone" placeholder="Credit Phone">
-            <input type="text" id="cardNumber" placeholder="Card Number">
-            <button class="animated-btn" onclick="makePayment()">Make Payment</button>
-            <div id="paymentStatus"></div>
-        </div>
-        
-        <!-- Fullscreen Toggle Button -->
-        <button class="animated-btn" onclick="toggleFullScreen()">Toggle Fullscreen</button>
+    <h1>Connect to Server</h1>
+    
+    <div id="code-entry-section">
+        <label for="server-code">Enter Server Code:</label><br>
+        <input type="text" id="server-code" placeholder="Enter code" required><br><br>
+        <button id="enter-btn" onclick="validateCode()">Enter</button><br><br>
+        <p id="status-message"></p>
     </div>
-    <script src="scripts.js"></script>
-    <script src="https://unpkg.com/quagga@0.12.1"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
