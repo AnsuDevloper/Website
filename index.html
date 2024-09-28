@@ -9,15 +9,27 @@
             font-family: Arial, sans-serif;
             text-align: center;
             margin-top: 50px;
+            background-color: #f0f0f0;
         }
-        #status-message, #item-message, #total-message {
+        #status-message, #item-message, #total-message, #payment-message {
             margin-top: 20px;
             font-size: 18px;
+            color: #333;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
         }
         button {
-            padding: 10px 20px;
-            font-size: 16px;
             cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+        }
+        button:hover {
+            background-color: #45a049;
         }
         #contact-admin {
             position: absolute;
@@ -29,6 +41,10 @@
             color: white;
             border: none;
             padding: 10px;
+        }
+        #payment-section {
+            display: none;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -49,6 +65,15 @@
         <p id="item-message"></p>
         <p id="total-message"></p>
         <button id="next-btn" style="display:none;">Next</button>
+    </div>
+
+    <div id="payment-section">
+        <h2>Enter Payment Details</h2>
+        <input type="text" id="card-number" placeholder="Card Number"><br>
+        <input type="text" id="expiry-date" placeholder="MM/YY"><br>
+        <input type="text" id="cvv" placeholder="CVV"><br>
+        <button id="pay-btn">Pay</button>
+        <p id="payment-message"></p>
     </div>
 
     <button id="contact-admin">Contact Admin</button>
