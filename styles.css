@@ -2,6 +2,9 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #f0f4f8;
+    background-image: url('BG.jpg'); /* Optional: Add a background image */
+    background-size: cover;
+    background-position: center;
     color: #333;
     display: flex;
     justify-content: center;
@@ -13,9 +16,9 @@ body {
 
 /* Main container styling */
 .container {
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency for overlay effect */
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     padding: 30px;
     max-width: 600px;
     width: 90%;
@@ -29,6 +32,13 @@ h1 {
     color: #4CAF50;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+/* Subheading */
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin-top: 20px;
 }
 
 /* Labels and input fields */
