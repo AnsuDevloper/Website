@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Server Code Entry</title>
+    <title>Connect to Server</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -28,10 +28,44 @@
     <div id="code-entry-section">
         <label for="server-code">Enter Server Code:</label><br>
         <input type="text" id="server-code" placeholder="Enter code" required><br><br>
-        <button id="enter-btn" onclick="validateCode()">Enter</button><br><br>
+        <button id="enter-btn">Enter</button><br><br>
         <p id="status-message"></p>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // Ensure the DOM is fully loaded before running JavaScript
+        document.addEventListener("DOMContentLoaded", function() {
+            const correctServerCode = "EDR4533BLS"; // Correct code to match
+            const enterBtn = document.getElementById('enter-btn');
+            const statusMessage = document.getElementById('status-message');
+
+            // Event listener for button click
+            enterBtn.addEventListener('click', function() {
+                const enteredCode = document.getElementById('server-code').value.trim();
+                
+                if (enteredCode === "") {
+                    // If no code is entered
+                    statusMessage.textContent = "Please enter a server code.";
+                    statusMessage.style.color = "red";
+                    return;
+                }
+
+                // Show connecting message
+                statusMessage.textContent = "Connecting...";
+                statusMessage.style.color = "blue";
+
+                // Simulate connection process for 10 seconds
+                setTimeout(() => {
+                    if (enteredCode === correctServerCode) {
+                        statusMessage.textContent = "Connected!";
+                        statusMessage.style.color = "green";
+                    } else {
+                        statusMessage.textContent = "Server not found. Please try again.";
+                        statusMessage.style.color = "red";
+                    }
+                }, 10000); // 10 seconds delay for simulation
+            });
+        });
+    </script>
 </body>
 </html>
